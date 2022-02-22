@@ -27,6 +27,9 @@ jobs:
           tags: ${{ env.TEST_TAG }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+          config-inline: |
+            [worker.containerd]
+              platforms = [ "linux/amd64", "linux/arm64", "linux/arm/v7" ]
       -
         name: Set up Node.js
         uses: actions/setup-node@v2
